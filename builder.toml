@@ -1,0 +1,32 @@
+description = "The Rails Cloud Native Buildpacks builder is optimized for Ruby On Rails applications."
+
+[[buildpacks]]
+id      = "io.avarteqgmbh.buildpacks.git-ssh"
+version = "0.5.1"
+uri     = "../git-ssh-buildpack"
+
+[[buildpacks]]
+id      = "com.anynines.buildpacks.rvm"
+version = "0.0.4"
+uri     = "../rvm-bash-cnb"
+
+[[buildpacks]]
+id      = "org.cloudfoundry.procfile"
+version = "v1.1.11"
+uri     = "../procfile-cnb"
+
+[[order]]
+    [[order.group]]
+    id = "io.avarteqgmbh.buildpacks.git-ssh"
+
+    [[order.group]]
+    id = "com.anynines.buildpacks.rvm"
+
+    [[order.group]]
+    id = "org.cloudfoundry.procfile"
+    optional = true
+
+[stack]
+id = "org.cloudfoundry.stacks.cflinuxfs3"
+build-image = "cloudfoundry/build:full-cnb"
+run-image = "cloudfoundry/run:full-cnb"
