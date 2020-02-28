@@ -15,9 +15,78 @@ id      = "org.cloudfoundry.procfile"
 version = "v1.1.11"
 uri     = "../procfile-cnb"
 
+[[buildpacks]]
+id      = "org.cloudfoundry.nodejs"
+version = "v2.0.0"
+uri     = "../nodejs-cnb"
+
+[[buildpacks]]
+id      = "org.cloudfoundry.node-engine"
+version = "0.0.150"
+uri     = "../node-engine-cnb"
+
+[[buildpacks]]
+id      = "org.cloudfoundry.npm"
+version = "0.0.91"
+uri     = "../npm-cnb"
+
+[[buildpacks]]
+id      = "org.cloudfoundry.yarn"
+version = "0.0.107"
+uri     = "../yarn-cnb"
+
 [[order]]
     [[order.group]]
     id = "io.avarteqgmbh.buildpacks.git-ssh"
+    optional = true
+
+    [[order.group]]
+    id = "com.anynines.buildpacks.rvm"
+
+    [[order.group]]
+    id = "org.cloudfoundry.nodejs"
+    optional = true
+
+    [[order.group]]
+    id = "org.cloudfoundry.procfile"
+    optional = true
+
+[[order]]
+    [[order.group]]
+    id = "io.avarteqgmbh.buildpacks.git-ssh"
+    optional = true
+
+    [[order.group]]
+    id = "com.anynines.buildpacks.rvm"
+
+    [[order.group]]
+    id = "org.cloudfoundry.npm"
+    optional = true
+
+    [[order.group]]
+    id = "org.cloudfoundry.procfile"
+    optional = true
+
+[[order]]
+    [[order.group]]
+    id = "io.avarteqgmbh.buildpacks.git-ssh"
+    optional = true
+
+    [[order.group]]
+    id = "com.anynines.buildpacks.rvm"
+
+    [[order.group]]
+    id = "org.cloudfoundry.yarn"
+    optional = true
+
+    [[order.group]]
+    id = "org.cloudfoundry.procfile"
+    optional = true
+
+[[order]]
+    [[order.group]]
+    id = "io.avarteqgmbh.buildpacks.git-ssh"
+    optional = true
 
     [[order.group]]
     id = "com.anynines.buildpacks.rvm"
