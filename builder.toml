@@ -7,7 +7,7 @@ uri     = "../git-ssh-buildpack"
 
 [[buildpacks]]
 id      = "com.anynines.buildpacks.rvm"
-version = "0.0.4"
+version = "0.0.5"
 uri     = "../rvm-bash-cnb"
 
 [[buildpacks]]
@@ -17,22 +17,22 @@ uri     = "../procfile-cnb"
 
 [[buildpacks]]
 id      = "org.cloudfoundry.nodejs"
-version = "v2.0.0"
+version = "v2.0.4"
 uri     = "../nodejs-cnb"
 
 [[buildpacks]]
 id      = "org.cloudfoundry.node-engine"
-version = "0.0.150"
+version = "0.0.160"
 uri     = "../node-engine-cnb"
 
 [[buildpacks]]
 id      = "org.cloudfoundry.npm"
-version = "0.0.91"
+version = "0.1.3"
 uri     = "../npm-cnb"
 
 [[buildpacks]]
 id      = "org.cloudfoundry.yarn"
-version = "0.0.107"
+version = "0.1.4"
 uri     = "../yarn-cnb"
 
 [[order]]
@@ -41,27 +41,10 @@ uri     = "../yarn-cnb"
     optional = true
 
     [[order.group]]
-    id = "com.anynines.buildpacks.rvm"
-
-    [[order.group]]
-    id = "org.cloudfoundry.nodejs"
-    optional = true
-
-    [[order.group]]
-    id = "org.cloudfoundry.procfile"
-    optional = true
-
-[[order]]
-    [[order.group]]
-    id = "io.avarteqgmbh.buildpacks.git-ssh"
-    optional = true
-
-    [[order.group]]
-    id = "com.anynines.buildpacks.rvm"
-
-    [[order.group]]
     id = "org.cloudfoundry.npm"
-    optional = true
+
+    [[order.group]]
+    id = "com.anynines.buildpacks.rvm"
 
     [[order.group]]
     id = "org.cloudfoundry.procfile"
@@ -71,13 +54,28 @@ uri     = "../yarn-cnb"
     [[order.group]]
     id = "io.avarteqgmbh.buildpacks.git-ssh"
     optional = true
-
-    [[order.group]]
-    id = "com.anynines.buildpacks.rvm"
 
     [[order.group]]
     id = "org.cloudfoundry.yarn"
+
+    [[order.group]]
+    id = "com.anynines.buildpacks.rvm"
+
+    [[order.group]]
+    id = "org.cloudfoundry.procfile"
     optional = true
+
+[[order]]
+    [[order.group]]
+    id = "io.avarteqgmbh.buildpacks.git-ssh"
+    optional = true
+
+    [[order.group]]
+    id = "org.cloudfoundry.node-engine"
+    optional = true
+
+    [[order.group]]
+    id = "com.anynines.buildpacks.rvm"
 
     [[order.group]]
     id = "org.cloudfoundry.procfile"
