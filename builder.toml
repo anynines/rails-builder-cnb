@@ -12,27 +12,22 @@ uri     = "../rvm-bash-cnb"
 
 [[buildpacks]]
 id      = "org.cloudfoundry.procfile"
-version = "v1.1.11"
+version = "v1.1.12"
 uri     = "../procfile-cnb"
 
 [[buildpacks]]
-id      = "org.cloudfoundry.nodejs"
-version = "v2.0.4"
-uri     = "../nodejs-cnb"
-
-[[buildpacks]]
-id      = "org.cloudfoundry.node-engine"
-version = "0.0.160"
+id      = "paketo-buildpacks/node-engine"
+version = "v0.0.192"
 uri     = "../node-engine-cnb"
 
 [[buildpacks]]
 id      = "org.cloudfoundry.npm"
-version = "0.1.3"
+version = "v0.1.21"
 uri     = "../npm-cnb"
 
 [[buildpacks]]
-id      = "org.cloudfoundry.yarn"
-version = "0.1.4"
+id      = "paketo-buildpacks/yarn-install"
+version = "v0.1.32"
 uri     = "../yarn-cnb"
 
 [[order]]
@@ -56,7 +51,7 @@ uri     = "../yarn-cnb"
     optional = true
 
     [[order.group]]
-    id = "org.cloudfoundry.yarn"
+    id = "paketo-buildpacks/yarn-install"
 
     [[order.group]]
     id = "com.anynines.buildpacks.rvm"
@@ -71,7 +66,7 @@ uri     = "../yarn-cnb"
     optional = true
 
     [[order.group]]
-    id = "org.cloudfoundry.node-engine"
+    id = "paketo-buildpacks/node-engine"
     optional = true
 
     [[order.group]]
