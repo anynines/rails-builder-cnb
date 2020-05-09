@@ -2,33 +2,27 @@ description = "The Rails Cloud Native Buildpacks builder is optimized for Ruby O
 
 [[buildpacks]]
 id      = "io.avarteqgmbh.buildpacks.git-ssh"
-version = "0.5.1"
 uri     = "../git-ssh-buildpack"
 
 [[buildpacks]]
 id      = "com.anynines.buildpacks.rvm"
-version = "0.0.5"
 uri     = "../rvm-bash-cnb"
 
 [[buildpacks]]
-id      = "org.cloudfoundry.procfile"
-version = "v1.1.12"
-uri     = "../procfile-cnb"
+id      = "paketo-buildpacks/procfile"
+uri     = "../procfile"
 
 [[buildpacks]]
 id      = "paketo-buildpacks/node-engine"
-version = "v0.0.192"
-uri     = "../node-engine-cnb"
+uri     = "https://github.com/paketo-buildpacks/node-engine/releases/download/v0.0.199/node-engine-v0.0.199.tgz"
 
 [[buildpacks]]
-id      = "org.cloudfoundry.npm"
-version = "v0.1.21"
-uri     = "../npm-cnb"
+id      = "paketo-buildpacks/npm"
+uri     = "https://github.com/paketo-buildpacks/npm/releases/download/v0.1.25/npm-v0.1.25.tgz"
 
 [[buildpacks]]
 id      = "paketo-buildpacks/yarn-install"
-version = "v0.1.32"
-uri     = "../yarn-cnb"
+uri     = "https://github.com/paketo-buildpacks/yarn-install/releases/download/v0.1.34/yarn-install-v0.1.34.tgz"
 
 [[order]]
     [[order.group]]
@@ -36,13 +30,13 @@ uri     = "../yarn-cnb"
     optional = true
 
     [[order.group]]
-    id = "org.cloudfoundry.npm"
+    id = "paketo-buildpacks/npm"
 
     [[order.group]]
     id = "com.anynines.buildpacks.rvm"
 
     [[order.group]]
-    id = "org.cloudfoundry.procfile"
+    id = "paketo-buildpacks/procfile"
     optional = true
 
 [[order]]
@@ -57,7 +51,7 @@ uri     = "../yarn-cnb"
     id = "com.anynines.buildpacks.rvm"
 
     [[order.group]]
-    id = "org.cloudfoundry.procfile"
+    id = "paketo-buildpacks/procfile"
     optional = true
 
 [[order]]
@@ -73,7 +67,7 @@ uri     = "../yarn-cnb"
     id = "com.anynines.buildpacks.rvm"
 
     [[order.group]]
-    id = "org.cloudfoundry.procfile"
+    id = "paketo-buildpacks/procfile"
     optional = true
 
 [[order]]
@@ -85,7 +79,7 @@ uri     = "../yarn-cnb"
     id = "com.anynines.buildpacks.rvm"
 
     [[order.group]]
-    id = "org.cloudfoundry.procfile"
+    id = "paketo-buildpacks/procfile"
     optional = true
 
 [stack]
