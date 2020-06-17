@@ -1,32 +1,40 @@
 description = "The Rails Cloud Native Buildpacks builder is optimized for Ruby On Rails applications."
 
 [[buildpacks]]
-id      = "io.avarteqgmbh.buildpacks.git-ssh"
-uri     = "../git-ssh-buildpack"
+id      = "com.anynines.buildpacks.gitcredentials"
+uri     = "/Users/khaledblah/go/src/github.com/avarteqgmbh/gitcredentials"
 
 [[buildpacks]]
 id      = "com.anynines.buildpacks.rvm"
-uri     = "../rvm-bash-cnb"
+uri     = "/Users/khaledblah/go/src/github.com/avarteqgmbh/rvm-cnb"
+
+[[buildpacks]]
+id      = "com.anynines.buildpacks.rvm-bundler"
+uri     = "/Users/khaledblah/go/src/github.com/avarteqgmbh/rvm-bundler-cnb"
 
 [[buildpacks]]
 id      = "paketo-buildpacks/procfile"
-uri     = "../procfile"
+uri     = "/Users/khaledblah/go/src/github.com/paketo-buildpacks/procfile"
 
 [[buildpacks]]
 id      = "paketo-buildpacks/node-engine"
-uri     = "https://github.com/paketo-buildpacks/node-engine/releases/download/v0.0.199/node-engine-v0.0.199.tgz"
+uri     = "https://github.com/paketo-buildpacks/node-engine/releases/download/v0.0.210/node-engine-0.0.210.tgz"
 
 [[buildpacks]]
 id      = "paketo-buildpacks/npm"
-uri     = "https://github.com/paketo-buildpacks/npm/releases/download/v0.1.25/npm-v0.1.25.tgz"
+uri     = "https://github.com/paketo-buildpacks/npm/releases/download/v0.1.38/npm-0.1.38.tgz"
 
 [[buildpacks]]
 id      = "paketo-buildpacks/yarn-install"
-uri     = "https://github.com/paketo-buildpacks/yarn-install/releases/download/v0.1.34/yarn-install-v0.1.34.tgz"
+uri     = "https://github.com/paketo-buildpacks/yarn-install/releases/download/v0.1.48/yarn-install-0.1.48.tgz"
 
 [[order]]
     [[order.group]]
-    id = "io.avarteqgmbh.buildpacks.git-ssh"
+    id = "com.anynines.buildpacks.gitcredentials"
+    optional = true
+
+    [[order.group]]
+    id = "paketo-buildpacks/node-engine"
     optional = true
 
     [[order.group]]
@@ -36,12 +44,19 @@ uri     = "https://github.com/paketo-buildpacks/yarn-install/releases/download/v
     id = "com.anynines.buildpacks.rvm"
 
     [[order.group]]
+    id = "com.anynines.buildpacks.rvm-bundler"
+
+    [[order.group]]
     id = "paketo-buildpacks/procfile"
     optional = true
 
 [[order]]
     [[order.group]]
-    id = "io.avarteqgmbh.buildpacks.git-ssh"
+    id = "com.anynines.buildpacks.gitcredentials"
+    optional = true
+
+    [[order.group]]
+    id = "paketo-buildpacks/node-engine"
     optional = true
 
     [[order.group]]
@@ -51,12 +66,15 @@ uri     = "https://github.com/paketo-buildpacks/yarn-install/releases/download/v
     id = "com.anynines.buildpacks.rvm"
 
     [[order.group]]
+    id = "com.anynines.buildpacks.rvm-bundler"
+
+    [[order.group]]
     id = "paketo-buildpacks/procfile"
     optional = true
 
 [[order]]
     [[order.group]]
-    id = "io.avarteqgmbh.buildpacks.git-ssh"
+    id = "com.anynines.buildpacks.gitcredentials"
     optional = true
 
     [[order.group]]
@@ -67,16 +85,22 @@ uri     = "https://github.com/paketo-buildpacks/yarn-install/releases/download/v
     id = "com.anynines.buildpacks.rvm"
 
     [[order.group]]
+    id = "com.anynines.buildpacks.rvm-bundler"
+
+    [[order.group]]
     id = "paketo-buildpacks/procfile"
     optional = true
 
 [[order]]
     [[order.group]]
-    id = "io.avarteqgmbh.buildpacks.git-ssh"
+    id = "com.anynines.buildpacks.gitcredentials"
     optional = true
 
     [[order.group]]
     id = "com.anynines.buildpacks.rvm"
+
+    [[order.group]]
+    id = "com.anynines.buildpacks.rvm-bundler"
 
     [[order.group]]
     id = "paketo-buildpacks/procfile"
@@ -86,3 +110,6 @@ uri     = "https://github.com/paketo-buildpacks/yarn-install/releases/download/v
 id = "org.cloudfoundry.stacks.cflinuxfs3"
 build-image = "cloudfoundry/build:full-cnb"
 run-image = "cloudfoundry/run:full-cnb"
+
+# build-image = "paketobuildpacks/build:full-cnb-cf"
+# run-image = "paketobuildpacks/run:full-cnb-cf"
